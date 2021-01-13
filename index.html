@@ -187,7 +187,7 @@ button {
           type="button"
           aria-pressed="false"
         ></button>
-        <button id="takePhotoButton" name="take Photo" type="button" onclick="download_image()"></button>
+        <button id="takePhotoButton" name="take Photo" type="button" onclick="downloadCanvas"></button>
         <button
           id="toggleFullScreenButton"
           name="toggle FullScreen"
@@ -498,14 +498,11 @@ function createClickFeedbackUI() {
     }
   };
 }
-      function download_image(){
-  
-  image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-  var link = document.createElement('a');
-  link.download = "my-image.png";
-  link.href = image;
-  link.click();
-}
+
+    		function downloadCanvas(link, canvas, filename) {
+			link.href = document.getElementById(canvas).toDataURL();
+			link.download = filename;
+		}  
 </script>
     
   </body>
