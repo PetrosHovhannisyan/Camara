@@ -440,14 +440,7 @@ function initCameraStream() {
 function takeSnapshot() {
   // if you'd like to show the canvas add it to the DOM
   var canvas = document.createElement('canvas');
-function download_image(){
-  
-  image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-  var link = document.createElement('a');
-  link.download = "my-image.png";
-  link.href = image;
-  link.click();
-}
+
   var width = video.videoWidth;
   var height = video.videoHeight;
 
@@ -479,7 +472,14 @@ function download_image(){
 // closure; store this in a variable and call the variable as function
 // eg. var takeSnapshotUI = createClickFeedbackUI();
 // takeSnapshotUI();
-
+function download_image(){
+  var canvas = document.createElement('canvas');
+  image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+  var link = document.createElement('a');
+  link.download = "my-image.png";
+  link.href = image;
+  link.click();
+}
 function createClickFeedbackUI() {
   // in order to give feedback that we actually pressed a button.
   // we trigger a almost black overlay
