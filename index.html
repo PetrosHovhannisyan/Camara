@@ -441,7 +441,7 @@ function takeSnapshot() {
   // if you'd like to show the canvas add it to the DOM
   var canvas = document.createElement('canvas');
 function download_image(){
-  var canvas = document.getElementById("canvas");
+  
   image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
   var link = document.createElement('a');
   link.download = "my-image.png";
